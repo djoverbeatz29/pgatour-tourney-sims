@@ -1,4 +1,4 @@
-function playerRound(playerObj, courseObj) {
+export default function playerRound(playerObj, courseObj) {
     Object.values(courseObj).forEach(holeDist=>{
       holeDistCopy = JSON.parse(JSON.stringify(holeDist));
       holeDistCopy[1] += playerObj.SGT / (18 * 2);

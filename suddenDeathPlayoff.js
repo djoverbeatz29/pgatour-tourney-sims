@@ -1,4 +1,4 @@
-function suddenDeathPlayoff(playersArray, holeArray) {
+export default function suddenDeathPlayoff(playersArray, holeArray) {
     let playersCopy=JSON.parse(JSON.stringify(playersArray));
     while (playersCopy.length>1) {
         let lead=50;

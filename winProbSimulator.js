@@ -1,7 +1,10 @@
-function winProbSimulator(playersArray, courseObj, N=100) {
+import suddenDeathPlayoff from './suddenDeathPlayoff';
+
+export default function winProbSimulator(playersArray, courseObj, N=100) {
     const winners = {};
     playersArray.forEach(player=>winners[player.name]=0);
     for (let i=0; i<N; i++) {
+        const leaders = [];
         const playersCopy = JSON.parse(JSON.stringify(playersArray));
         const bestScore = {score: 1000, count: 1};
         playersCopy.forEach(player=>{
@@ -13,8 +16,10 @@ function winProbSimulator(playersArray, courseObj, N=100) {
             else if (player.score === bestScore.score) bestScore.count += 1;
         });
         playersCopy.forEach(player=>{
-            if (player.score===bestScore.score) winners[player.name] += 1 / bestScore.count;
+            if (player.score===bestScore.score) leaders.push(player);
         })
+        const winner=suddenDeathPlayoff(leaders);
+        winners[winner.name] += 1;
     }
     Object.keys(winners).forEach(key=> winners[key] /= N);
     return winners;

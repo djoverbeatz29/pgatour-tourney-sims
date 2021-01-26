@@ -1,4 +1,4 @@
-let players = [
+const players = [
    {name: "Max Homa", SGT: 0.279, score: -15},
    {name: "Si Woo Kim", SGT: 0.267, score: -15},
    {name: "Tony Finau", SGT: 1.243, score: -15},
@@ -12,3 +12,5 @@ let players = [
    {name: "Francesco Molinari", SGT: 0.038, score: -12},
    {name: "Doug Ghim", SGT: -0.520, score: -12}
 ];
+
+export default players;
