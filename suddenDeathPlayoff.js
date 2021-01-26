@@ -1,3 +1,5 @@
+import playerRound from './playerRound';
+
 export default function suddenDeathPlayoff(playersArray, holeArray) {
     let playersCopy=JSON.parse(JSON.stringify(playersArray));
     while (playersCopy.length>1) {
@@ -9,5 +11,5 @@ export default function suddenDeathPlayoff(playersArray, holeArray) {
         });
         playersCopy=playersCopy.filter(player=>player.score===lead);
     }
-    return playersCopy[0];
+    return playersCopy[0]["name"];
 }
