@@ -14,7 +14,7 @@ export default function winProbSimulator(playersArray, courseArray, N=100) {
         playersCopy.forEach(player=>{
             if (player.score===bestScore) leaders.push(player);
         })
-        const winner=suddenDeathPlayoff(leaders, courseArray[17]);
+        const winner=leaders.length>1 ? suddenDeathPlayoff(leaders, courseArray[17]) : leaders[0]["name"];
         winners[winner] += 1;
     }
     Object.keys(winners).forEach(key=> winners[key] /= N);
