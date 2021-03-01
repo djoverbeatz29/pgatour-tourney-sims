@@ -19,4 +19,4 @@ export default function winProbSimulator(playersArray, courseArray, N=100) {
     }
     Object.keys(winners).forEach(key=> winners[key] /= N);
     return winners;
-}
+}e
